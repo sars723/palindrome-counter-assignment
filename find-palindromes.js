@@ -20,7 +20,24 @@
  * - You can implement additional helper functions or use additional npm packages if you want - but the "app.js" must not be changed.
  */
 function findPalindromes(words) {
-    throw new Error('Please implement this function');
+  let count = 0;
+  let reversedWord = words
+    .toLowerCase()
+    .split("")
+    .reverse("")
+    .join("")
+    .replace(/[^a-zA-Z]/gi, "");
+  if (
+    words.toLowerCase().replace(/[^a-zA-Z]/gi, "") ===
+    reversedWord.replace(/[^a-zA-Z]/gi, "")
+  ) {
+    count++;
+    console.log("palindromes");
+  } else {
+    console.log("no palindromes word in the list");
+  }
+  return count;
+  //throw new Error("Please implement this function");
 }
 
 module.exports = findPalindromes;

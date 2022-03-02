@@ -18,30 +18,33 @@
  *      entries is different (so ['Anna', 'ANNA', 'aNNa'] is still only 1 palindrome)
  *
  * - You can implement additional helper functions or use additional npm packages if you want - but the "app.js" must not be changed.
- */
-function findPalindromes(words) {
+ */ function findPalindromes(words) {
   let count = 0;
   let palindromesWordsArr = [];
-  let reversedWord = words
-    .toLowerCase()
-    .split("")
-    .reverse("")
-    .join("")
-    .replace(/[^a-zA-Z]/gi, "");
-  if (
-    words.toLowerCase().replace(/[^a-zA-Z]/gi, "") ===
-    reversedWord.replace(/[^a-zA-Z]/gi, "")
-  ) {
-    //count++;
-    if (!palindromesWordsArr.includes(words)) {
-      palindromesWordsArr.push(words);
-    }
+  words.map((word) => {
+    let reversedWord = word
+      .toLowerCase()
+      .split("")
+      .reverse("")
+      .join("")
+      .replace(/[^a-zA-Z]/gi, "");
 
-    console.log("palindromes");
-  } else {
-    console.log("no palindromes word in the list");
-  }
-  return palindromesWordsArr.length;
+    if (
+      word.toLowerCase().replace(/[^a-zA-Z]/gi, "") ===
+      reversedWord.replace(/[^a-zA-Z]/gi, "")
+    ) {
+      //count++;
+      if (!palindromesWordsArr.includes(words)) {
+        palindromesWordsArr.push(words);
+      }
+
+      console.log("palindromes");
+    } else {
+      console.log("no palindromes word in the list");
+    }
+    console.log(palindromesWordsArr.length);
+    return palindromesWordsArr.length;
+  });
   //return count;
   //throw new Error("Please implement this function");
 }

@@ -21,6 +21,7 @@
  */
 function findPalindromes(words) {
   let count = 0;
+  let palindromesWordsArr = [];
   let reversedWord = words
     .toLowerCase()
     .split("")
@@ -31,12 +32,17 @@ function findPalindromes(words) {
     words.toLowerCase().replace(/[^a-zA-Z]/gi, "") ===
     reversedWord.replace(/[^a-zA-Z]/gi, "")
   ) {
-    count++;
+    //count++;
+    if (!palindromesWordsArr.includes(words)) {
+      palindromesWordsArr.push(words);
+    }
+
     console.log("palindromes");
   } else {
     console.log("no palindromes word in the list");
   }
-  return count;
+  return palindromesWordsArr.length;
+  //return count;
   //throw new Error("Please implement this function");
 }
 
